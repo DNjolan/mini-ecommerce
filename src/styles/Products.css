@@ -1,0 +1,39 @@
+.containerMain{
+    margin: auto;
+
+    ul{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+        justify-items: center;
+        margin: 0;
+        padding: 0;
+
+        li{
+            display: flex;
+            flex-direction: column;
+            max-width: 260px;
+            width: 100%;
+            background-color: aliceblue;
+            border-radius: 25px;
+            text-align: center;
+            align-items: center;
+
+            h3{
+                font-size: 1.6rem;
+            }
+            p{
+                font-size: 1.2rem;
+            }
+            img{
+                max-width: 250px;
+                height: auto;
+            }
+            transition: scale .5s;
+        }
+        li:hover {
+            scale: 1.08;
+            cursor: pointer;
+        }
+    }
+}
