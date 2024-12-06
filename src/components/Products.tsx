@@ -1,4 +1,5 @@
 import '../styles/Products.css'
+
 type TypePatherProducts = {
     products: Array<TypeProducts>
 }
@@ -7,10 +8,12 @@ type TypeProducts = {
     id: number,
     title: string,
     price: number,
-    images: string
+    images: string,
+    category: string
 }
 
 export const Products: React.FC<TypePatherProducts> = ({ products }) => {
+
     return(
         <main className="containerMain">
             <ul>
