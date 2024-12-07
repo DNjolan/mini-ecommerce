@@ -1,15 +1,21 @@
+import { useContext } from 'react'
 import '../styles/Header.css'
+import { FilterContext } from '../context/filter'
 
-type TypeFilter = {
-    filter: {
-        category: string,
-        price: number
-    },
-    handleChangePrice: (e: React.ChangeEvent<HTMLInputElement>) => void,
-    handleChangeCategory: (e: React.ChangeEvent<HTMLSelectElement>) => void
-}
+// type TypeFilter = {
+//     filter: {
+//         category: string,
+//         price: number,
+//         sort: boolean
+//     },
+//     handleChangePrice: (e: React.ChangeEvent<HTMLInputElement>) => void,
+//     handleChangeCategory: (e: React.ChangeEvent<HTMLSelectElement>) => void,
+//     handleChangeAsc: (e: React.ChangeEvent<HTMLInputElement>) => void
+// }
 
-export const Header: React.FC<TypeFilter> = ({filter, handleChangePrice, handleChangeCategory}) => {
+export const Header = () => {
+    const {filter, handleChangeCategory, handleChangePrice, handleChangeAsc} = useContext(FilterContext)!
+
     return(
         <header className="containerHeader">
             <h1>E-Commerce</h1>
@@ -26,6 +32,16 @@ export const Header: React.FC<TypeFilter> = ({filter, handleChangePrice, handleC
                         value={filter.price}
                     />
                     <span>{filter.price}</span>
+                </div>
+                <div>
+                    <label htmlFor="order">Cambiar orden</label>
+                    <input
+                        type="checkbox"
+                        id="order"
+                        name="order"
+                        checked={filter.sort}
+                        onChange={handleChangeAsc}
+                    />
                 </div>
                 <div>
                     <label htmlFor="category">Categoría</label>

@@ -1,15 +1,16 @@
+import { useContext } from "react";
 import { Header } from "./components/Header";
 import { Products } from "./components/Products";
 // CustomeHooks
-import useFilter from "./hooks/useFilter";
+import { FilterContext } from "./context/filter";
 
 export default function App() {
-  const {filter, handleChangeCategory, handleChangePrice, mappedFilterProducts} = useFilter()
+  const {mappedFilterAsc} = useContext(FilterContext)!
   
   return(
     <>
-    <Header filter={filter} handleChangePrice={handleChangePrice} handleChangeCategory={handleChangeCategory}/>
-    <Products products={mappedFilterProducts}/>
+    <Header/>
+    <Products products={mappedFilterAsc}/>
     </>
   )
 }
