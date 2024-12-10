@@ -2,17 +2,6 @@ import { useContext } from 'react'
 import '../styles/Header.css'
 import { FilterContext } from '../context/filter'
 
-// type TypeFilter = {
-//     filter: {
-//         category: string,
-//         price: number,
-//         sort: boolean
-//     },
-//     handleChangePrice: (e: React.ChangeEvent<HTMLInputElement>) => void,
-//     handleChangeCategory: (e: React.ChangeEvent<HTMLSelectElement>) => void,
-//     handleChangeAsc: (e: React.ChangeEvent<HTMLInputElement>) => void
-// }
-
 export const Header = () => {
     const {filter, handleChangeCategory, handleChangePrice, handleChangeAsc} = useContext(FilterContext)!
 

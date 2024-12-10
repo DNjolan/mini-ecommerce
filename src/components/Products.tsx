@@ -1,7 +1,10 @@
+import { ReactNode, useContext } from 'react'
 import '../styles/Products.css'
+import { CartContext } from '../context/cartContext'
 
 type TypePatherProducts = {
     products: Array<TypeProducts>
+    children: ReactNode
 }
 
 type TypeProducts = {
@@ -12,9 +15,12 @@ type TypeProducts = {
     category: string
 }
 
-export const Products: React.FC<TypePatherProducts> = ({ products }) => {
+export const Products: React.FC<TypePatherProducts> = ({ products, children }) => {
+    const {handleChangeCart} = useContext(CartContext)!
 
     return(
+        <>
+        {children}
         <main className="containerMain">
             <ul>
                 {products.map((product) => {
@@ -26,10 +32,12 @@ export const Products: React.FC<TypePatherProducts> = ({ products }) => {
                                 alt={product.title}
                             />
                             <p>Precio: ${product.price}</p>
+                            <button onClick={() => handleChangeCart(product.id, products)}>Agregar al carro</button>
                         </li>
                     )
                 })}
             </ul>
         </main>
+        </>
     )
 }
