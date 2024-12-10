@@ -10,7 +10,6 @@ import CartProvider from "./context/cartContext";
 
 export default function App() {
   const {mappedFilterAsc} = useContext(FilterContext)!
-  // const {cart} = useContext(CartContext)!
 
   return(
     <>

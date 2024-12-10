@@ -1,23 +1,24 @@
-import { createContext, ReactNode } from "react";
+import { createContext } from "react";
 import useCart from "../hooks/useCart";
+import { TypeChildren, TypeCartContextAll } from "../type/type";
 
-type TypeChildren = {
-    children: ReactNode
-}
+// type TypeChildren = {
+//     children: ReactNode
+// }
 
-type TypeProducts = {
-    id: number,
-    title: string,
-    price: number,
-    images: string,
-    category: string
-}
+// type TypeProducts = {
+//     id: number,
+//     title: string,
+//     price: number,
+//     images: string,
+//     category: string
+// }
 
-type TypeCartContextAll = {
-    cart: TypeProducts[],
-    handleChangeCart: (idProd: number, products: TypeProducts[]) => void,
-    handleDeleteProdCart: (idProd: number) => void
-}
+// type TypeCartContextAll = {
+//     cart: TypeProducts[],
+//     handleChangeCart: (idProd: number, products: TypeProducts[]) => void,
+//     handleDeleteProdCart: (idProd: number) => void
+// }
 
 export const CartContext = createContext<TypeCartContextAll | undefined>(undefined)
 

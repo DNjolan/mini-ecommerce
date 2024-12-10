@@ -1,33 +1,22 @@
-import { createContext, ReactNode } from "react";
+import { createContext } from "react";
 import useFilter from "../hooks/useFilter";
+import { TypeChildren, FilterContextType } from '../type/type'
 
-type TypeProducts = {
-    id: number,
-    title: string,
-    price: number,
-    images: string,
-    category: string
-}
-
-type FilterContextType = {
-    filter: {
-        category: string,
-        price: number,
-        sort: boolean
-    },
-    handleChangeCategory: (e: React.ChangeEvent<HTMLSelectElement>) => void,
-    handleChangePrice: (e: React.ChangeEvent<HTMLInputElement>) => void,
-    handleChangeAsc: (e: React.ChangeEvent<HTMLInputElement>) => void,
-    mappedFilterAsc: TypeProducts[]
-  }
-
-interface ChildrenProviderPros {
-    children: ReactNode
-}
+// type FilterContextType = {
+//     filter: {
+//         category: string,
+//         price: number,
+//         sort: boolean
+//     },
+//     handleChangeCategory: (e: React.ChangeEvent<HTMLSelectElement>) => void,
+//     handleChangePrice: (e: React.ChangeEvent<HTMLInputElement>) => void,
+//     handleChangeAsc: (e: React.ChangeEvent<HTMLInputElement>) => void,
+//     mappedFilterAsc: TypeProducts[]
+// }
 
 export const FilterContext = createContext<FilterContextType | undefined>(undefined)
 
-export default function FilterProvider ({ children }: ChildrenProviderPros) {
+export default function FilterProvider ({ children }: TypeChildren) {
     const {
         filter,
         handleChangeCategory,

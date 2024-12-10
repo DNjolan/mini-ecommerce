@@ -1,19 +1,20 @@
-import { ReactNode, useContext } from 'react'
+import { useContext } from 'react'
 import '../styles/Products.css'
 import { CartContext } from '../context/cartContext'
+import { TypePatherProducts } from '../type/type'
 
-type TypePatherProducts = {
-    products: Array<TypeProducts>
-    children: ReactNode
-}
+// type TypePatherProducts = {
+//     products: Array<TypeProducts>
+//     children: ReactNode
+// }
 
-type TypeProducts = {
-    id: number,
-    title: string,
-    price: number,
-    images: string,
-    category: string
-}
+// type TypeProducts = {
+//     id: number,
+//     title: string,
+//     price: number,
+//     images: string,
+//     category: string
+// }
 
 export const Products: React.FC<TypePatherProducts> = ({ products, children }) => {
     const {handleChangeCart} = useContext(CartContext)!
